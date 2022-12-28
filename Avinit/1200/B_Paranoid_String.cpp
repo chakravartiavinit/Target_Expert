@@ -125,17 +125,14 @@ signed main()
         cin >> n;
         string alpha;
         cin >> alpha;
-        int total_substring = (n * (n + 1)) / 2;
-        int not_paranoid_substrings = 0;
-        for (int i = 0; i + 1 < n; ++i)
+        int answer = n;
+        for (int i = 1; i < n; ++i)
         {
-            if (alpha[i] == alpha[i + 1])
+            if (alpha[i] != alpha[i -1])
             {
-                int left = i;
-                int right = n - i;
-                not_paranoid_substrings += right - left + 1;
+                answer+=i;
             }
         }
-        cout << total_substring - not_paranoid_substrings << "\n";
+        cout << answer << "\n";
     }
 }
