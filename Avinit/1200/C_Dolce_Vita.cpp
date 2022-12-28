@@ -129,6 +129,20 @@ signed main()
             cin >> prices[i];
         }
         sort(prices.begin(), prices.end());
-        
+        int till_now = 0, answer = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            till_now += prices[i];
+            if (till_now > x)
+            {
+                break;
+            }
+            else
+            {
+                int current_packets = (x - till_now) / (i + 1);
+                answer += (current_packets + 1);
+            }
+        }
+        cout << answer << "\n";
     }
 }
